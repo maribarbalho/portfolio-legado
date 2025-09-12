@@ -1,12 +1,8 @@
-
-
 body {
   background: linear-gradient(135deg, #e9ecef, #007bff, #6c757d);
   background-size: 400% 400%;
   animation: gradientAnimation 10s ease infinite;
 }
-
-
 
 @keyframes gradientAnimation {
   0% {
@@ -20,10 +16,6 @@ body {
   }
 }
 
-
-
-
-
 body {
   font-family: 'Arial', sans-serif;
   background-color: #e9ecef;
@@ -32,6 +24,7 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  position: relative; /* Para posicionamento absoluto das galinhas */
 }
 
 .container {
@@ -41,6 +34,8 @@ body {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   width: 350px;
   transition: transform 0.2s;
+  position: relative;
+  z-index: 2; /* Fica acima das galinhas */
 }
 
 .container:hover {
@@ -146,6 +141,7 @@ button.remover:hover {
   right: 200px; /* Ajuste a distância da borda direita */
   width: 200px; /* Ajuste o tamanho da imagem */
   height: auto; /* Mantém a proporção da imagem */
+  z-index: 1; /* Fica atrás da calculadora */
 }
 
 .galinha-esquerda {
@@ -154,6 +150,7 @@ button.remover:hover {
   left: 200px; /* Ajuste a distância da borda esquerda */
   width: 200px; /* Ajuste o tamanho da imagem */
   height: auto; /* Mantém a proporção da imagem */
+  z-index: 1; /* Fica atrás da calculadora */
 }
 
 .galinha-direita:hover, .galinha-esquerda:hover {
@@ -187,3 +184,10 @@ button.remover:hover {
   }
 }
 
+/* Responsividade para imagens das galinhas: remove em telas pequenas */
+@media (max-width: 600px) {
+  .galinha-direita,
+  .galinha-esquerda {
+    display: none;
+  }
+}
